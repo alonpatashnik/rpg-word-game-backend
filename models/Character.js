@@ -9,10 +9,10 @@ Character.init({
         autoIncrement: true,
         primaryKey: true,
     },
-    userId: {
-        type: DataTypes.INTEGER,
-        references: {model:"user", key:"id"}
-    },
+    // userId: {
+    //     type: DataTypes.INTEGER,
+    //     references: {model:"user", key:"id"}
+    // },
     charName: {
         type: DataTypes.STRING,
         allowNull: false,
