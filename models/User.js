@@ -31,10 +31,6 @@ User.init({
         },
         allowNull: false
     },
-    playableCharcterId: {
-        type: DataTypes.INTEGER,
-        references: {model:"character", key:"id"}
-    },
     points: {
         type: DataTypes.INTEGER
     },

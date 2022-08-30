@@ -9,6 +9,10 @@ Character.init({
         autoIncrement: true,
         primaryKey: true,
     },
+    userId: {
+        type: DataTypes.INTEGER,
+        references: {model:"user", key:"id"}
+    },
     charName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -25,6 +29,8 @@ Character.init({
         type: DataTypes.INTEGER,
         allowNull: false
     }
+},{
+    sequelize
 })
 
 module.exports = Character
