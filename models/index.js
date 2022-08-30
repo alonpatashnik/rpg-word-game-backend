@@ -3,6 +3,10 @@ const Character = require('./Character')
 const Prompt = require('./Prompt')
 const Word = require('./Word')
 
+User.hasOne(Character, {
+    foreignKey: 'characterId'
+});
+Character.belongsTo(User);
 
 module.exports = { User, Character, Prompt, Word };
 
