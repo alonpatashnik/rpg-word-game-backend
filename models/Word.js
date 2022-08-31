@@ -9,7 +9,7 @@ Word.init({
         autoIncrement: true,
         primaryKey: true,
     },
-    Word: {
+    word: {
         type: DataTypes.STRING,
     },
 },{

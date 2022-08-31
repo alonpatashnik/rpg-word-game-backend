@@ -2,49 +2,49 @@ const { Word } = require('../models');
 
 const wordData = [
   {
-    word_word: 'Connoisseur',
+    word: 'Connoisseur',
   },
   {
-    word_word: 'Dreading',
+    word: 'Dreading',
   },
   {
-    word_word: 'Grandiose',
+    word: 'Grandiose',
   },
   {
-    word_word: 'Associate',
+    word: 'Associate',
   },
   {
-    word_word: 'Complicate',
+    word: 'Complicate',
   },
   {
-    word_word: 'Discourage',
+    word: 'Discourage',
   },
   {
-    word_word: 'Computer',
+    word: 'Computer',
   },
   {
-    word_word: 'Vegetable',
+    word: 'Vegetable',
   },
   {
-    word_word: 'Garden',
+    word: 'Garden',
   },
   {
-    word_word: 'Imaginable',
+    word: 'Imaginable',
   },
   {
-    word_word: 'Incredulously',
+    word: 'Incredulously',
   },
   {
-    word_word: 'Psychology',
+    word: 'Psychology',
   },
   {
-    word_word: 'Meteorology',
+    word: 'Meteorology',
   },
   {
-    word_word: 'Forensics',
+    word: 'Forensics',
   },
   {
-    word_word: 'Olfactory',
+    word: 'Olfactory',
   },
 ];
 
