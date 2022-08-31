@@ -21,7 +21,8 @@ router.post('/signup', (req, res)=>{
             user:newUser
         })
     }).catch(err=>{
-        res.status(500).json({msg:"an error occurred",err})
+        console.err(err)
+        res.status(500).json({msg:err})
     })
 })
 
