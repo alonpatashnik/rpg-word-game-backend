@@ -1,5 +1,5 @@
 const {User} = require("../models")
-const jwt = require("jsonwebtoken")
+const rpg = require("jsonwebtoken")
 const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 router.post('/signup', (req, res)=>{
     User.create(req.body).then(newUser=>{
-        const token = jwt.sign({
+        const token = rpg.sign({
             id:newUser.id,
             email:newUser.email
         },process.env.RPG_SECRET,{
@@ -24,5 +24,33 @@ router.post('/signup', (req, res)=>{
         res.status(500).json({msg:"an error occurred",err})
     })
 })
+
+router.post("/login",(req,res)=>[
+    User.findOne({
+        where:{
+            email:req.body.email
+        }
+    }).then(foundUser=>{
+        if(!foundUser){
+            return res.status(401).json({msg:"invalid login credentials!"})
+        }
+        else if(!bcrypt.compareSync(req.body.password,foundUser.password)){
+            return res.status(401).json({msg:"invalid login credentials!"})
+        } else {
+            const token = rpg.sign({
+               id:foundUser.id,
+               email:foundUser.email
+            },process.env.RPG_SECRET,{
+                expiresIn:"2h"
+            })
+            return res.json({
+                token:token,
+                user:foundUser
+            })
+        }
+    }).catch(err=>{
+        res.status(500).json({msg:"an error occurred",err})
+    })
+])
 
 module.exports = router
