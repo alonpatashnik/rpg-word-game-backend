@@ -53,4 +53,19 @@ router.post("/login",(req,res)=>[
     })
 ])
 
+router.get("/check-token",(req,res)=>{
+    const token = req.headers.authorization.split(" ")[1]
+    console.log(token)
+    try{
+        const userData = rpg.verify(token,process.env.RPG_SECRET)
+        User.findByPk(userData.id).then(userData=>{
+            res.json(userData)
+        }).catch(err=>{
+            res.status(500).json({msg:"an error occurred",err})
+        })
+    } catch{
+      res.status(403).json({msg:"invalid token"})
+    }
+})
+
 module.exports = router
