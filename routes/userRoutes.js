@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/signup', (req, res)=>{
+    console.log('signupRequest')
+    console.log(req.body)
     User.create(req.body).then(newUser=>{
         const token = rpg.sign({
             id:newUser.id,
