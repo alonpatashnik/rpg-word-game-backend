@@ -3,6 +3,7 @@ const rpg = require("jsonwebtoken")
 const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
+require('dotenv').config()
 
 router.get('/', (req, res) => {
     User.findAll().then((data)=> res.send(data))
@@ -21,7 +22,8 @@ router.post('/signup', (req, res)=>{
             user:newUser
         })
     }).catch(err=>{
-        res.status(500).json({msg:"an error occurred",err})
+        console.log(err)
+        res.status(500).json({msg:err})
     })
 })
 
