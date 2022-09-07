@@ -9,6 +9,16 @@ router.get('/', (req, res) => {
     User.findAll().then((data)=> res.send(data))
 })
 
+router.put('/:id/:points', async (req,res) => {
+    await User.update({points: req.params.points}, {
+        where: {
+            id: req.params.id
+        }
+    }).then((data) => {
+        res.send(data)
+    })
+})
+
 router.post('/signup', (req, res)=>{
     User.create(req.body).then(newUser=>{
         const token = rpg.sign({
